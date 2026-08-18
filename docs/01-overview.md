@@ -12,7 +12,7 @@ requirement:
 | Manual work | Teams re-summarize, re-create issues, re-enter status | Every transition in the workflow chain pre-fills from the record it came from |
 
 The business impact — slower response, duplicated work, less visibility — is what the KPI
-set in [document 10](10-delivery-plan-and-kpis.md) measures.
+set in [document 10](10-delivery-plan.md) measures.
 
 ## 1.2 What MESSI is
 
@@ -41,28 +41,30 @@ Roles are defined formally in [document 08](08-security-and-tenancy.md).
 ## 1.4 Scope by phase
 
 Mirrors the proposal's MVP staging. Phase boundaries are enforceable: nothing from a later
-phase is a prerequisite for an earlier one.
+phase is a prerequisite for an earlier one. Each phase has its own document with scope,
+sequencing, exit criteria and risks; the summary below is orientation only.
 
-### Phase 1 — Internal MVP
+### [Phase 1 — Internal MVP](11-phase-1-mvp.md)
 Screening · Projects · Tasks & issues · Basic dashboard · User and role management.
 
 Delivered as a working internal tool with **no AI in the critical path**. This is
 deliberate: it establishes the KPI baseline the proposal asks for, and it proves the
 structured-data chain works before any model is involved.
 
-### Phase 2 — Automation
+### [Phase 2 — Automation](12-phase-2-automation.md)
 Messenger integration · Notifications · AI summaries · AI classification · Project health insights.
 
 AI enters as an *assistive overlay*. Every AI output is attached to a record, attributable,
 reviewable and reversible. Turning the AI layer off degrades MESSI to Phase 1 — it never
 breaks it.
 
-### Phase 3 — Productization
+### [Phase 3 — Productization](13-phase-3-productization.md)
 Multi-tenancy · Organization administration · Usage and billing · Custom workflows · External onboarding.
 
 The data model and authorization layer are built Phase-3-ready from the start
 ([ADR-0002](adr/0002-org-scoped-single-database-multitenancy.md)); Phase 3 is
-then mostly UI, billing integration and workflow configuration surfaces.
+then mostly UI, billing integration and workflow configuration surfaces — plus the
+operating-model commitments that external customers bring.
 
 ## 1.5 Explicit non-goals
 

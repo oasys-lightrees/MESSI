@@ -154,7 +154,7 @@ returned in every error body, so a user-reported problem is one search.
 | Business | Screenings submitted/converted, issues opened/closed, projects by health, MAU/WAU, edit-free AI acceptance rate |
 
 The business row belongs in the same system as the technical rows: it is the KPI
-instrumentation from [doc 10](10-delivery-plan-and-kpis.md), and if it lives in a separate
+instrumentation from [doc 10](10-delivery-plan.md), and if it lives in a separate
 spreadsheet it will not survive the pilot.
 
 **Logging.** Structured JSON to CloudWatch, PII-scrubbed by allow-list, 30-day hot / 1-year

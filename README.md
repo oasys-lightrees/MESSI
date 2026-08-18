@@ -27,7 +27,10 @@ code has been written yet; the design is the artefact under review.
 | 07 | [Events & Automation](docs/07-events-and-automation.md) | Outbox, job queue, rules engine, notifications |
 | 08 | [Security & Tenancy](docs/08-security-and-tenancy.md) | AuthN/AuthZ, RBAC, isolation, data governance |
 | 09 | [Deployment & Operations](docs/09-deployment-and-operations.md) | Docker, AWS topology, CI/CD, observability, runbooks |
-| 10 | [Delivery Plan & KPIs](docs/10-delivery-plan-and-kpis.md) | Phasing, KPI instrumentation, risk controls |
+| 10 | [Delivery Plan & KPIs](docs/10-delivery-plan.md) | Phase map, KPI scorecard, measurement mechanics, risk register |
+| 11 | [Phase 1 — Internal MVP](docs/11-phase-1-mvp.md) | Scope, sequencing, exit criteria — the no-AI baseline phase |
+| 12 | [Phase 2 — Automation](docs/12-phase-2-automation.md) | Messenger, AI rollout discipline, exit criteria |
+| 13 | [Phase 3 — Productization](docs/13-phase-3-productization.md) | Multi-tenancy, billing, operating-model changes |
 
 Architecture decisions with lasting consequences are recorded in [docs/adr](docs/adr).
 
