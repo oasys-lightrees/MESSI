@@ -71,6 +71,13 @@ stateDiagram-v2
 
 ## 3.3 Screening
 
+> **Superseded in part by [doc 14](14-followup-engine.md).** Screening is one instance of the
+> follow-up engine — a module with `cadence.kind = "once"`. The concepts below (versioned
+> question sets, typed answers, deterministic scoring, conversion) are correct and carry
+> over unchanged; what changed is that they are no longer screening-specific. MESSI itself
+> is *messenger screening*: a recurring daily module, not a one-shot intake form. See
+> [ADR-0007](adr/0007-followup-cycles-generalize-screening.md).
+
 The domain object that most directly replaces manual work.
 
 ```mermaid

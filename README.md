@@ -3,13 +3,18 @@
 **M**essaging, **E**valuation/**S**creening, **S**ystems & **I**ssues — Lightrees' internal
 operations and AI workflow platform.
 
-MESSI turns unstructured operational activity (conversations, forms, updates) into
-structured records, workflows and decisions, with an AI layer applied only where it
-produces measurable operational value.
+MESSI replaces manual follow-up. A leader defines once what needs asking; the system asks
+on schedule, records the answer, notices who did not answer, and turns what the answer
+produced into a tracked object.
 
 ```
-Conversation / Screening → Structured record → Workflow / Project → Issue / Task → AI summary & action
+Follow-up module → Cycle (the ask) → Answer → Commitment (action · when · who)
+                                            └→ Outcome (approval · signature · meeting · issue · project)
 ```
+
+The engine is generic; the launch modules are **MESSI** (daily messenger screening),
+**LEADS** (lead status) and **PRISTA** (project status). An AI layer sits over the top,
+applied only where it produces measurable operational value.
 
 This repository currently contains the **system design** for the platform. No application
 code has been written yet; the design is the artefact under review.
@@ -31,6 +36,8 @@ code has been written yet; the design is the artefact under review.
 | 11 | [Phase 1 — Internal MVP](docs/11-phase-1-mvp.md) | Scope, sequencing, exit criteria — the no-AI baseline phase |
 | 12 | [Phase 2 — Automation](docs/12-phase-2-automation.md) | Messenger, AI rollout discipline, exit criteria |
 | 13 | [Phase 3 — Productization](docs/13-phase-3-productization.md) | Multi-tenancy, billing, operating-model changes |
+| 14 | [The Follow-up Engine](docs/14-followup-engine.md) | Modules, enrolments, cycles, commitments, scoring — the core |
+| 15 | [Modules & Outcomes](docs/15-modules-and-outcomes.md) | MESSI, LEADS, PRISTA; approvals, signatures, SHAREENA |
 
 Architecture decisions with lasting consequences are recorded in [docs/adr](docs/adr).
 
@@ -45,5 +52,8 @@ Architecture decisions with lasting consequences are recorded in [docs/adr](docs
    change, not a migration.
 4. **Measure the outcome, not the AI usage.** Every KPI on the proposal's scorecard has a
    named table, event or metric behind it before the feature ships.
-5. **Boring until proven otherwise.** One database, one deployable backend, one queue
+5. **The system should ask less over time, not more.** Every follow-up mechanism has a
+   path to a lower cadence — commitment-driven scheduling, auto-decay, archiving. A system
+   that only ever adds questions gets ignored wholesale.
+6. **Boring until proven otherwise.** One database, one deployable backend, one queue
    mechanism. Extraction into services happens when a measurement demands it.

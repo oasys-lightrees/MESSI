@@ -11,3 +11,5 @@ decision → consequences, including the consequences we dislike.
 | [0004](0004-postgres-backed-jobs-and-outbox.md) | Postgres for jobs and the outbox; no broker | Accepted |
 | [0005](0005-ai-proposes-humans-dispose.md) | AI proposes, humans dispose | Accepted |
 | [0006](0006-deterministic-health-ai-narrative.md) | Deterministic health metrics, AI narrative only | Accepted |
+| [0007](0007-followup-cycles-generalize-screening.md) | Follow-up cycles generalize screening; one engine, many modules | Accepted |
+| [0008](0008-commitment-driven-cadence.md) | Cadence derives from what the player promised, not a fixed calendar | Accepted |

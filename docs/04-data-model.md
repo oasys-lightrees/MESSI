@@ -119,6 +119,14 @@ CREATE TABLE contacts (
 
 ## 4.4 Screening
 
+> **Superseded by [doc 14](14-followup-engine.md) §14.11.** These tables generalize into
+> `followup_modules`, `followup_module_versions`, `followup_cycles` and `followup_answers`;
+> the mapping is in [ADR-0007](adr/0007-followup-cycles-generalize-screening.md). The DDL
+> below is retained because the column-level decisions — versioned definitions, `origin` and
+> `confidence` on every answer, the review-queue indexes — carry over verbatim to the
+> generalized tables.
+
+
 ```sql
 CREATE TABLE screening_templates (
     id              UUID PRIMARY KEY,
