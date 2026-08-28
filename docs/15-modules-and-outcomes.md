@@ -83,7 +83,7 @@ uploads a screenshot, and extraction fills the counts as a *proposal* they confi
 ([ADR-0005](adr/0005-ai-proposes-humans-dispose.md)). Assistive, legitimate, no ToS
 exposure.
 
-## 15.2 LEADS — Lead Status Report
+## 15.2 LESTARI — Lead Status Report
 
 **Subject:** `lead` · **Cadence:** commitment-driven, weekly fallback · **Players:** sales
 
@@ -101,7 +101,7 @@ them. The user's reasoning was explicit: *"supaya si team player ini bisa mikir 
 bisa inisiatif, bisa proaktif."* A dropdown of pre-set next actions would destroy exactly
 the behaviour the module exists to produce.
 
-`commitment_mapping` binds `next_action` → `next_due` → `owner` into a commitment, so LEADS
+`commitment_mapping` binds `next_action` → `next_due` → `owner` into a commitment, so LESTARI
 runs on the cadence in [doc 14](14-followup-engine.md) §14.7: the player is asked on the day
 they said something would happen, and a missed date escalates on its own.
 
@@ -114,7 +114,7 @@ answered forever.
 **Subject:** `project` · **Cadence:** weekly, plus commitment-driven · **Players:** project
 leads
 
-Identical question set to LEADS — the user's own observation: *"project juga sama
+Identical question set to LESTARI — the user's own observation: *"project juga sama
 pertanyaannya… bedanya itu aja."* Only `subject_kind` differs.
 
 Two additions specific to projects:
@@ -143,7 +143,7 @@ graph LR
     D -->|"a decision"| AP["Approval Request"]
     D -->|"a signature"| SG["Signature Request"]
     D -->|"both"| BO["Approval → Signature"]
-    D -->|"a meeting"| SH["SHAREENA<br/>Schedule Request & Action"]
+    D -->|"a meeting"| SH["SHERINA<br/>Schedule Request & Action"]
     D -->|"one piece of work"| IS["Issue"]
     D -->|"many related pieces"| PR["Project"]
 ```
@@ -209,7 +209,7 @@ CREATE INDEX ix_participants_inbox ON request_participants (user_id, response)
 |---|---|---|---|
 | **approval** | policy (`all` / `any` / `quorum`), amount, category | All required approvers responded | `approved` or `rejected` + audit trail |
 | **signature** | document attachment id, signing order, provider ref | All signers signed | Signed document + signature audit record |
-| **schedule** (SHAREENA) | proposed slots, agenda, location or meeting link | A slot confirmed and the meeting held | Meeting notes + action items → issues |
+| **schedule** (SHERINA) | proposed slots, agenda, location or meeting link | A slot confirmed and the meeting held | Meeting notes + action items → issues |
 
 **Approval → Signature chaining.** *"Ada yang perlu approval and assign"* — modelled as two
 requests linked by `source_type='request'`, not as one dual-purpose object. The signature
@@ -225,7 +225,7 @@ UU ITE and PP 71/2019. The `payload.provider_ref` field is where that integratio
 Worth deciding before the module is used for customer contracts rather than internal
 approvals.
 
-### SHAREENA — Schedule Request and Action
+### SHERINA — Schedule Request and Action
 
 Named per the user: *Schedule Request and Action*. The **Action** half is the part that is
 usually missing from meeting tools and is the reason it belongs in a follow-up system:
@@ -258,7 +258,7 @@ click, not a memory exercise.
 
 ## 15.5 Module comparison
 
-| | MESSI | LEADS | PRISTA |
+| | MESSI | LESTARI | PRISTA |
 |---|---|---|---|
 | Subject | self | lead | project |
 | Cadence | daily, weekdays | commitment-driven, weekly fallback | weekly + commitment-driven |
@@ -272,8 +272,18 @@ going hollow, and the mitigations are in [doc 14](14-followup-engine.md) §14.8.
 
 ## 15.6 Naming
 
-`MESSI`, `PRISTA` and `SHAREENA` follow a consistent house style — pronounceable names that
-expand to a description of the function. `LEADS` is a placeholder and does not fit the
-pattern; it should get a name in the same style before launch. The module `key` is used in
-URLs, event types and the console, so renaming later is a data migration — cheap now,
-irritating in six months.
+All four names follow one house style — a pronounceable Indonesian name that expands to a
+description of the function:
+
+| Name | Expands to |
+|---|---|
+| **MESSI** | **Mes**senger **S**creen**i**ng |
+| **LESTARI** | **Le**ads **Stat**us **R**eport**i**ng |
+| **PRISTA** | **Pr**oject **Sta**tus |
+| **SHERINA** | **S**c**he**dule **R**equest a**n**d **A**ction |
+
+The module `key` appears in URLs, event types and the console, so names are fixed before
+launch rather than renamed later — a rename after data exists is a migration.
+
+Future modules follow the same convention. A name that cannot be expanded into what the
+module actually asks about is a sign the module's purpose is not yet clear.

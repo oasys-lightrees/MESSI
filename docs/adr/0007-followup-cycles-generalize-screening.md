@@ -42,7 +42,7 @@ an optional module capability rather than a property of every module.
 ## Consequences
 
 **Good**
-- MESSI, LEADS and PRISTA are configuration, not three codebases. Adding PRISTA after LEADS
+- MESSI, LESTARI and PRISTA are configuration, not three codebases. Adding PRISTA after LESTARI
   cost a `subject_kind` value and a pre-fill rule.
 - One inbox, one reminder path, one scoring model, one set of events. A player is not asked
   to learn three tools that ask them questions.

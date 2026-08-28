@@ -30,7 +30,7 @@ The user's terms, made precise. These names are used consistently in the schema 
 |---|---|---|
 | **Follow-up maker** / game maker | `manager`+ role | Defines modules, enrols players, reads the leader dashboard |
 | **Player** | any member | The person asked, who answers |
-| **Module** | `followup_modules` | A named, reusable follow-up program — MESSI, LEADS, PRISTA |
+| **Module** | `followup_modules` | A named, reusable follow-up program — MESSI, LESTARI, PRISTA |
 | **Subject** | polymorphic ref | *What* is being followed up: a lead, a project, or the player themself |
 | **Enrolment** | `followup_enrolments` | One standing obligation: this player, this subject, this cadence |
 | **Cycle** | `followup_cycles` | One occurrence of the question for one period. The thing in the inbox. |
@@ -46,7 +46,7 @@ makes recurring-task systems either spam people or silently forget them.
 
 ```mermaid
 graph TB
-    M["Module<br/>MESSI · LEADS · PRISTA"] --> MV["Module version<br/>questions · cadence · outcomes · scoring"]
+    M["Module<br/>MESSI · LESTARI · PRISTA"] --> MV["Module version<br/>questions · cadence · outcomes · scoring"]
     MV --> EN["Enrolment<br/>player × subject × cadence"]
     SU["Subject<br/>self / lead / project"] --> EN
     PL["Player"] --> EN
@@ -66,7 +66,7 @@ A module is created in the console. Its versioned definition carries five things
 
 ```json
 {
-  "key": "LEADS",
+  "key": "LESTARI",
   "name": "Lead Status Report",
   "subject_type": "lead",
   "questions": [
@@ -96,13 +96,13 @@ module that does not declare it still works — it just cannot use commitment-dr
 | `subject_type` | Subject | Example module |
 |---|---|---|
 | `self` | The player themself | MESSI — "check your messengers" |
-| `lead` | A customer or contact | LEADS — "how is PT Anu going?" |
+| `lead` | A customer or contact | LESTARI — "how is PT Anu going?" |
 | `project` | A project | PRISTA — "how is project X going?" |
 | `issue` | A single issue | Chasing one blocker |
 | `custom` | Any entity registered in the org's schema registry | Phase 3 |
 
 One engine, three modules, because the only thing that differs is *what is asked about*.
-This is why LEADS and PRISTA can share the identical four questions — the user noticed this
+This is why LESTARI and PRISTA can share the identical four questions — the user noticed this
 themselves: *"project juga sama pertanyaannya tiga… bedanya itu aja."*
 
 ## 14.6 Cadence and cycle generation
@@ -274,7 +274,7 @@ CREATE TYPE subject_type AS ENUM ('self','lead','project','issue','custom');
 CREATE TABLE followup_modules (
     id              UUID PRIMARY KEY,
     organization_id UUID NOT NULL REFERENCES organizations(id),
-    key             TEXT NOT NULL,              -- 'MESSI', 'LEADS', 'PRISTA'
+    key             TEXT NOT NULL,              -- 'MESSI', 'LESTARI', 'PRISTA'
     name            TEXT NOT NULL,
     description     TEXT,
     subject_kind    subject_type NOT NULL,

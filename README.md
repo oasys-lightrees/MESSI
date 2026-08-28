@@ -12,9 +12,13 @@ Follow-up module → Cycle (the ask) → Answer → Commitment (action · when �
                                             └→ Outcome (approval · signature · meeting · issue · project)
 ```
 
-The engine is generic; the launch modules are **MESSI** (daily messenger screening),
-**LEADS** (lead status) and **PRISTA** (project status). An AI layer sits over the top,
-applied only where it produces measurable operational value.
+The engine is generic — the product is the machine that builds follow-up questions, not any
+one module. The launch modules are **MESSI** (messenger screening), **LESTARI** (leads status
+reporting), **PRISTA** (project status) and **SHERINA** (schedule request and action); a
+sugar mill asking about daily output is the same machinery with different questions.
+
+An AI layer sits over the top, applied only where it produces measurable operational value —
+most importantly on the *questions*, before anyone is ever asked.
 
 This repository currently contains the **system design** for the platform. No application
 code has been written yet; the design is the artefact under review.
@@ -37,7 +41,9 @@ code has been written yet; the design is the artefact under review.
 | 12 | [Phase 2 — Automation](docs/12-phase-2-automation.md) | Messenger, AI rollout discipline, exit criteria |
 | 13 | [Phase 3 — Productization](docs/13-phase-3-productization.md) | Multi-tenancy, billing, operating-model changes |
 | 14 | [The Follow-up Engine](docs/14-followup-engine.md) | Modules, enrolments, cycles, commitments, scoring — the core |
-| 15 | [Modules & Outcomes](docs/15-modules-and-outcomes.md) | MESSI, LEADS, PRISTA; approvals, signatures, SHAREENA |
+| 15 | [Modules & Outcomes](docs/15-modules-and-outcomes.md) | MESSI, LESTARI, PRISTA; approvals, signatures, SHERINA |
+| 16 | [Question Design & Authoring](docs/16-question-design.md) | How to write questions that make people think; the linter and console |
+| 17 | [Answer Analysis](docs/17-answer-analysis.md) | Progress, bottleneck attribution, themes, performance recap |
 
 Architecture decisions with lasting consequences are recorded in [docs/adr](docs/adr).
 

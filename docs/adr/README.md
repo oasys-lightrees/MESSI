@@ -13,3 +13,5 @@ decision → consequences, including the consequences we dislike.
 | [0006](0006-deterministic-health-ai-narrative.md) | Deterministic health metrics, AI narrative only | Accepted |
 | [0007](0007-followup-cycles-generalize-screening.md) | Follow-up cycles generalize screening; one engine, many modules | Accepted |
 | [0008](0008-commitment-driven-cadence.md) | Cadence derives from what the player promised, not a fixed calendar | Accepted |
+| [0009](0009-attribution-computed-narrative-written.md) | Bottleneck attribution is computed; the model only names and narrates | Accepted |
+| [0010](0010-question-quality-gated-at-authoring.md) | Question quality is gated at authoring, not policed at answering | Accepted |
