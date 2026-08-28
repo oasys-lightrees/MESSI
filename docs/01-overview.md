@@ -16,15 +16,28 @@ set in [document 10](10-delivery-plan.md) measures.
 
 ## 1.2 What MESSI is
 
-An internal operations platform with four surfaces over one shared operational data model:
+**A machine for building follow-up questions**, plus the surfaces needed to ask them, answer
+them and act on the answers. See [doc 14](14-followup-engine.md) for the engine and
+[doc 16](16-question-design.md) for the question design that makes it work.
 
+- **Follow-up engine** — modules, enrolments, cycles, commitments. Defines what gets asked,
+  of whom, how often, and what happens to the answer.
+- **Authoring console** — where a non-engineer defines a follow-up program for any domain.
+  This is the product; the modules are its output.
+- **Outcomes** — an answer becomes an approval, a signature, a meeting, an issue or a project.
 - **Messenger** — contextual conversations attached to operational objects.
-- **Screening** — structured capture that converts conversations and forms into business records.
-- **Projects & Issues** — tasks, blockers, ownership, project health.
-- **AI Layer** — summarization, classification, extraction, health analysis, assistant, automation triggers.
+- **Analysis** — progress, bottlenecks, and whether a problem is one person's or everyone's.
+- **AI Layer** — question review, cause classification, theme mining, narrative, assistant.
 
-The AI Layer is deliberately *not* a fifth product surface. It is a capability injected
-into the other three, which is why it has no standalone navigation and no standalone KPI.
+The launch modules are **MESSI** (messenger screening), **LESTARI** (leads status reporting),
+**PRISTA** (project status) and **SHERINA** (schedule request and action). They are examples,
+not the product: a sugar mill asking about daily output is the same engine with different
+questions.
+
+The AI Layer is deliberately *not* a standalone surface. It is a capability injected into the
+others, which is why it has no separate navigation and no standalone KPI. Its highest-value
+application is on the *questions*, before any player is ever asked
+([ADR-0010](adr/0010-question-quality-gated-at-authoring.md)).
 
 ## 1.3 Users and roles
 
@@ -45,14 +58,17 @@ phase is a prerequisite for an earlier one. Each phase has its own document with
 sequencing, exit criteria and risks; the summary below is orientation only.
 
 ### [Phase 1 — Internal MVP](11-phase-1-mvp.md)
-Screening · Projects · Tasks & issues · Basic dashboard · User and role management.
+Follow-up engine · authoring console · MESSI + LESTARI · outcomes · leader dashboard ·
+deterministic analytics · user and role management.
 
-Delivered as a working internal tool with **no AI in the critical path**. This is
-deliberate: it establishes the KPI baseline the proposal asks for, and it proves the
-structured-data chain works before any model is involved.
+Delivered as a working internal tool with **no AI in the critical path**. This is deliberate:
+it establishes the KPI baseline the proposal asks for, and every management question —
+progress, bottleneck, one person or everyone — is answered by arithmetic before any model is
+involved.
 
-### [Phase 2 — Automation](12-phase-2-automation.md)
-Messenger integration · Notifications · AI summaries · AI classification · Project health insights.
+### [Phase 2 — Automation & Intelligence](12-phase-2-automation.md)
+AI question review · cause classification · theme mining · narrative · messenger integration ·
+SHERINA · automation rules · notifications · scoring.
 
 AI enters as an *assistive overlay*. Every AI output is attached to a record, attributable,
 reviewable and reversible. Turning the AI layer off degrades MESSI to Phase 1 — it never

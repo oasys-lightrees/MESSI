@@ -18,7 +18,7 @@ surface that cannot be walked back.
 | Multi-tenancy | Organization switching, cross-org user membership, tenant-scoped admin |
 | Organization administration | Settings UI, role management, health-rule thresholds, AI toggles and budgets per tenant |
 | Usage & billing | Metering, plan limits, invoicing integration, usage dashboards |
-| Custom workflows | Screening template designer, configurable field mappings, per-tenant automation rule library |
+| Custom workflows | **Already delivered by the authoring console** — this reduces to a blueprint gallery, sharing, and per-tenant rule libraries |
 | Onboarding | Self-service signup, guided setup, template gallery, sample data |
 | Identity | OIDC/SAML SSO, SCIM provisioning |
 | Integration | Public API, outbound webhooks, API keys and scopes |
@@ -35,11 +35,23 @@ The expensive parts of multi-tenancy were done in Phase 1, when they were free:
 | Per-org AI budgets, metered `cost_micros` | Phase 2 | Billing integration on top of existing meters |
 | Health thresholds in `organizations.settings` | Phase 1 | Admin UI to edit them |
 | Automation rules as data | Phase 2 | Per-tenant rule library, template gallery |
-| Versioned screening templates with declarative field mapping | Phase 1 | Designer UI |
+| Versioned module definitions, question types, linter, blueprints | Phase 1 | Blueprint gallery and sharing |
+| Follow-up engine as a generic, per-tenant configurable product | Phase 1 | Nothing — this *is* the sellable core |
 
 This is the payoff for [ADR-0002](adr/0002-org-scoped-single-database-multitenancy.md) and
-for keeping automation and templates data-driven. The remaining work is genuinely new
-product surface — billing, onboarding, SSO, public API — rather than retrofitting.
+for keeping automation and modules data-driven. The remaining work is genuinely new product
+surface — billing, onboarding, SSO, public API — rather than retrofitting.
+
+**The commercial argument got stronger between the original plan and this one.** When the
+product was screening plus projects plus issues, "sellable later" meant competing with
+established project tools on their own ground. As a follow-up engine it is a different and
+narrower proposition: any organization whose managers spend their day asking people for
+status can define their own modules — a mill asking about output, a clinic about patient
+follow-ups, a contractor about site progress — without a developer. The proposal's target
+segments (coaching, consulting, education, HR, training) are all workflow-heavy in exactly
+that way. Phase 1 already builds the configurability that makes this possible, which is why
+[Phase 1](11-phase-1-mvp.md) exit criterion 5 — a non-engineer authors a working module
+unaided — is a commercial gate as much as a technical one.
 
 **The honest caveat:** "mostly UI" is a claim about the data model, not about total effort.
 Billing, SSO/SCIM and a public API each carry their own correctness and support burden, and
@@ -67,8 +79,9 @@ before the first external customer rather than discovered by them.
 Slide 10's step 2 — "separate company-specific workflows from reusable platform features" —
 is a concrete audit, run at the start of this phase:
 
-1. Inventory every hard-coded assumption: screening question keys, health thresholds,
-   role names, notification templates, issue types, business calendar.
+1. Inventory every hard-coded assumption: module keys and question keys, cause taxonomies,
+   stage lists, cadence defaults, health thresholds, role names, notification templates,
+   issue types, business calendar.
 2. For each, decide: platform default, tenant configuration, or Lightrees-only.
 3. Move tenant configuration into `organizations.settings` or the template/rule tables.
 4. Delete anything Lightrees-only that no longer has a user.
@@ -93,7 +106,7 @@ tenant hitting them.
 | 1 | A second organization is onboarded self-service, with no Lightrees engineer in the loop |
 | 2 | Cross-tenant isolation suite green, plus an independent penetration test with no high findings |
 | 3 | Usage metering reconciles with provider invoices within 2% |
-| 4 | A tenant configures a screening template and an automation rule without support |
+| 4 | A tenant authors a follow-up module, enrols a team and configures an automation rule without support |
 | 5 | Public API documented, versioned, with a published deprecation policy |
 | 6 | Support, SLA and incident-response processes defined and rehearsed |
 

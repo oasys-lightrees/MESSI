@@ -102,8 +102,10 @@ stateDiagram-v2
 | **Score** | Deterministic, computed from a rules expression on the template. **Never AI-generated** — a score that decides customer outcomes must be explainable and reproducible. |
 | **Classification** | AI-proposed category/priority. Advisory, stored separately from score, requires acceptance. |
 
-Templates are versioned because the KPI "average screening time" is only comparable across
-a stable instrument. Version pinning makes the pilot measurement honest.
+Definitions are versioned because a KPI computed across a changing instrument is not
+comparable over time. Version pinning makes the pilot measurement honest — and in the
+generalized engine, analysis groups by module version for exactly this reason
+([doc 17](17-answer-analysis.md) §17.2).
 
 ## 3.4 Project
 
